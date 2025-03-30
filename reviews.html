@@ -250,28 +250,75 @@
             <section class="reviews-section">
                 <h1 style="text-align: center; margin-bottom: 10px; color: var(--gold);">CLIENT TESTIMONIALS</h1>
                 <p style="text-align: center; margin-bottom: 40px;">Hear what our members say about their experience</p>
-                
-                <!-- Horizontal Scrolling Reviews -->
-                <div class="reviews-track" id="reviews-track">
-                    <!-- Reviews content here (same as before) -->
+            
+            <!-- Horizontal Scrolling Reviews -->
+            <div class="reviews-track" id="reviews-track">
+                <!-- Sample Review 1 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Rahul P.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"The trainers at Studio 6 transformed my fitness journey. In just 3 months, I've gained more strength than I did in a year at other gyms!"</p>
+                    <p class="review-date">June 15, 2024</p>
                 </div>
                 
-                <div class="view-all">
-                    <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
-                       class="gold-button"
-                       target="_blank">
-                        VIEW ALL REVIEWS ON GOOGLE
-                    </a>
+                <!-- Sample Review 2 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Priya M.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"The Zumba classes are electrifying! I've never enjoyed working out this much. The energy here is unmatched in Mangalore."</p>
+                    <p class="review-date">May 28, 2024</p>
                 </div>
-            </section>
-        </div>
+                
+                <!-- Sample Review 3 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Arjun K.</h4>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                    <p class="review-text">"Recovered from my back injury thanks to the personalized training. The trainers really understand body mechanics."</p>
+                    <p class="review-date">May 10, 2024</p>
+                </div>
+                
+                <!-- Sample Review 4 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Ananya S.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"My daughter loves the kids' program! She's more active and confident now. Worth every rupee."</p>
+                    <p class="review-date">April 22, 2024</p>
+                </div>
+                
+                <!-- Sample Review 5 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Sanjay R.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"The functional fitness classes took my athletic performance to the next level. Highly recommended for serious athletes."</p>
+                    <p class="review-date">April 15, 2024</p>
+                </div>
+            </div>
+            
+            <div class="view-all">
+                <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
+                   class="gold-button"
+                   target="_blank">
+                    VIEW ALL REVIEWS ON GOOGLE
+                </a>
+            </div>
+        </section>
+    </div>
 
-        <!-- Instagram Footer -->
-        <div class="instagram-footer">
-            <a href="https://instagram.com/studio6fitnesschilimbi" target="_blank" style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-                Follow us @studio6fitnesschilimbi
-            </a>
-        </div>
+    <!-- Instagram Footer -->
+    <div class="instagram-footer">
+        <a href="https://instagram.com/studio6fitnesschilimbi" target="_blank" style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+            Follow us @studio6fitnesschilimbi
+        </a>
     </div>
 
     <!-- WhatsApp Button -->
@@ -283,17 +330,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Duplicate reviews for seamless scrolling
         const track = document.getElementById('reviews-track');
-        if (track) {
-            track.innerHTML += track.innerHTML;
-        }
-        
-        // Adjust main content margin based on header height
-        const header = document.querySelector('.fixed-header');
-        const mainContent = document.querySelector('.main-content');
-        if (header && mainContent) {
-            const headerHeight = header.offsetHeight;
-            mainContent.style.marginTop = headerHeight + 'px';
-        }
+        track.innerHTML += track.innerHTML;
     });
     </script>
 </body>
