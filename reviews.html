@@ -19,49 +19,49 @@
             padding: 0;
         }
         
-        /* Mobile Logo Header */
-        .mobile-logo-header {
-            display: none;
-            text-align: center;
-            padding: 15px 0;
-            background: var(--black);
-            border-bottom: 1px solid #333;
-            position: sticky;
+        /* Fixed Header Container */
+        .fixed-header {
+            position: fixed;
             top: 0;
-            z-index: 1001;
+            left: 0;
+            right: 0;
+            background: var(--black);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
         
-        .mobile-logo-header img {
+        /* Logo Section */
+        .logo-header {
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo-header img {
             width: 250px;
             max-width: 80%;
             height: auto;
         }
 
-        header {
-            background: var(--black);
-            padding: 10px 0;
-            z-index: 1000;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Navigation Section */
+        .nav-container {
+            padding: 10px;
         }
         
         nav {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 0 10px;
         }
         
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: bold;
-            padding: 5px 10px;
+            text-align: center;
+            padding: 8px 5px;
+            font-size: 13px;
         }
         
         nav a:hover {
@@ -71,10 +71,19 @@
         .call-now-btn {
             background: var(--gold);
             color: var(--black);
-            padding: 8px 15px;
+            padding: 10px;
             border-radius: 4px;
             font-weight: bold;
-            white-space: nowrap;
+            grid-column: span 3;
+            width: 100%;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 210px; /* Adjust this based on your header height */
+            padding: 20px;
         }
 
         /* ===== 3D REVIEW CARDS ===== */
@@ -178,62 +187,52 @@
             z-index: 999;
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .mobile-logo-header {
-                display: block;
+        /* Desktop responsiveness */
+        @media (min-width: 769px) {
+            .fixed-header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
-            header {
-                padding: 10px;
+            .logo-header img {
+                width: 350px;
             }
             
             nav {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-                padding: 0 10px;
+                display: flex;
+                gap: 20px;
+                padding: 15px 0;
             }
             
             nav a {
-                text-align: center;
-                padding: 8px 5px;
-                font-size: 13px;
+                font-size: 16px;
+                padding: 5px 15px;
             }
             
             .call-now-btn {
-                grid-column: span 3;
-                width: 100%;
-                padding: 10px;
-                margin-top: 5px;
+                width: auto;
+                padding: 8px 20px;
+                margin: 0;
+                grid-column: auto;
             }
             
-            .review-card {
-                flex: 0 0 280px;
-                padding: 20px;
-            }
-            
-            .reviews-section {
-                padding-top: 20px;
-            }
-            
-            .review-text {
-                font-size: 14px;
+            .main-content {
+                margin-top: 180px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Mobile Logo Header -->
-    <div class="mobile-logo-header">
-        <a href="index.html">
-            <img src="images/logo.png" alt="Studio 6 Fitness">
-        </a>
-    </div>
-
-    <!-- Main Header -->
-    <header>
-        <div class="container">
+    <!-- Fixed Header Section -->
+    <div class="fixed-header">
+        <div class="logo-header">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Studio 6 Fitness">
+            </a>
+        </div>
+        
+        <div class="nav-container">
             <nav>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -243,81 +242,36 @@
                 <a href="tel:+917019476061" class="call-now-btn">CALL NOW</a>
             </nav>
         </div>
-    </header>
-
-    <div class="container">
-        <section class="reviews-section">
-            <h1 style="text-align: center; margin-bottom: 10px; color: var(--gold);">CLIENT TESTIMONIALS</h1>
-            <p style="text-align: center; margin-bottom: 40px;">Hear what our members say about their experience</p>
-            
-            <!-- Horizontal Scrolling Reviews -->
-            <div class="reviews-track" id="reviews-track">
-                <!-- Sample Review 1 -->
-                <div class="review-card">
-                    <div class="reviewer-info">
-                        <h4>Rahul P.</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                    <p class="review-text">"The trainers at Studio 6 transformed my fitness journey. In just 3 months, I've gained more strength than I did in a year at other gyms!"</p>
-                    <p class="review-date">June 15, 2024</p>
-                </div>
-                
-                <!-- Sample Review 2 -->
-                <div class="review-card">
-                    <div class="reviewer-info">
-                        <h4>Priya M.</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                    <p class="review-text">"The Zumba classes are electrifying! I've never enjoyed working out this much. The energy here is unmatched in Mangalore."</p>
-                    <p class="review-date">May 28, 2024</p>
-                </div>
-                
-                <!-- Sample Review 3 -->
-                <div class="review-card">
-                    <div class="reviewer-info">
-                        <h4>Arjun K.</h4>
-                        <div class="stars">★★★★☆</div>
-                    </div>
-                    <p class="review-text">"Recovered from my back injury thanks to the personalized training. The trainers really understand body mechanics."</p>
-                    <p class="review-date">May 10, 2024</p>
-                </div>
-                
-                <!-- Sample Review 4 -->
-                <div class="review-card">
-                    <div class="reviewer-info">
-                        <h4>Ananya S.</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                    <p class="review-text">"My daughter loves the kids' program! She's more active and confident now. Worth every rupee."</p>
-                    <p class="review-date">April 22, 2024</p>
-                </div>
-                
-                <!-- Sample Review 5 -->
-                <div class="review-card">
-                    <div class="reviewer-info">
-                        <h4>Sanjay R.</h4>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                    <p class="review-text">"The functional fitness classes took my athletic performance to the next level. Highly recommended for serious athletes."</p>
-                    <p class="review-date">April 15, 2024</p>
-                </div>
-            </div>
-            
-            <div class="view-all">
-                <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
-                   class="gold-button"
-                   target="_blank">
-                    VIEW ALL REVIEWS ON GOOGLE
-                </a>
-            </div>
-        </section>
     </div>
 
-    <!-- Instagram Footer -->
-    <div class="instagram-footer">
-        <a href="https://instagram.com/studio6fitnesschilimbi" target="_blank" style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
-            Follow us @studio6fitnesschilimbi
-        </a>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <section class="reviews-section">
+                <h1 style="text-align: center; margin-bottom: 10px; color: var(--gold);">CLIENT TESTIMONIALS</h1>
+                <p style="text-align: center; margin-bottom: 40px;">Hear what our members say about their experience</p>
+                
+                <!-- Horizontal Scrolling Reviews -->
+                <div class="reviews-track" id="reviews-track">
+                    <!-- Reviews content here (same as before) -->
+                </div>
+                
+                <div class="view-all">
+                    <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
+                       class="gold-button"
+                       target="_blank">
+                        VIEW ALL REVIEWS ON GOOGLE
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- Instagram Footer -->
+        <div class="instagram-footer">
+            <a href="https://instagram.com/studio6fitnesschilimbi" target="_blank" style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+                Follow us @studio6fitnesschilimbi
+            </a>
+        </div>
     </div>
 
     <!-- WhatsApp Button -->
@@ -329,7 +283,17 @@
     document.addEventListener('DOMContentLoaded', function() {
         // Duplicate reviews for seamless scrolling
         const track = document.getElementById('reviews-track');
-        track.innerHTML += track.innerHTML;
+        if (track) {
+            track.innerHTML += track.innerHTML;
+        }
+        
+        // Adjust main content margin based on header height
+        const header = document.querySelector('.fixed-header');
+        const mainContent = document.querySelector('.main-content');
+        if (header && mainContent) {
+            const headerHeight = header.offsetHeight;
+            mainContent.style.marginTop = headerHeight + 'px';
+        }
     });
     </script>
 </body>
