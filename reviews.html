@@ -168,7 +168,15 @@
             }
             
             .logo img {
-                display: none;
+    width: 200px; /* Reduced size for mobile */
+    display: block; /* Force show on mobile */
+    margin: 0 auto; /* Center the logo */
+}
+
+/* For the mobile header logo */
+.mobile-logo {
+    display: none; /* Hide the duplicate mobile logo */
+}
             }
             
             nav {
