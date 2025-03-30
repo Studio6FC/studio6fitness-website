@@ -18,6 +18,20 @@
             margin: 0;
             padding-top: 70px;
         }
+        
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+            text-align: center;
+            padding: 15px 0;
+            background: var(--black);
+        }
+        
+        .mobile-logo {
+            max-width: 200px;
+            height: auto;
+        }
+
         header {
             position: fixed;
             top: 0;
@@ -69,8 +83,8 @@
             position: relative;
         }
         .reviews-section p {
-    color: var(--white);
-}
+            color: var(--white);
+        }
         .reviews-track {
             display: flex;
             gap: 30px;
@@ -138,17 +152,62 @@
             body {
                 padding-top: 80px;
             }
-            nav {
-                gap: 15px;
-                font-size: 14px;
+            
+            .mobile-header {
+                display: block;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 1001;
             }
+            
+            header {
+                top: 70px;
+                height: auto;
+                padding: 10px 0;
+            }
+            
+            .logo img {
+                display: none;
+            }
+            
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+                padding: 0 10px;
+            }
+            
+            .call-now-btn {
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+            
             .review-card {
                 flex: 0 0 280px;
+                padding: 20px;
+            }
+            
+            .review-text {
+                min-height: auto;
+                font-size: 14px;
+            }
+            
+            .reviews-section {
+                padding-top: 140px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Mobile Header (Logo Only) -->
+    <div class="mobile-header">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Studio 6 Fitness" class="mobile-logo">
+        </a>
+    </div>
+
     <!-- Fixed Header -->
     <header>
         <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
@@ -226,10 +285,10 @@
             
             <div class="view-all">
                 <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
-   class="gold-button"
-   target="_blank">
-    VIEW ALL REVIEWS ON GOOGLE
-</a>
+                   class="gold-button"
+                   target="_blank">
+                    VIEW ALL REVIEWS ON GOOGLE
+                </a>
             </div>
         </section>
     </div>
