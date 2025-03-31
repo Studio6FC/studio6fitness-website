@@ -17,80 +17,56 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
+            padding-top: 150px; /* Increased padding to prevent header overlap */
         }
-        
-        /* Fixed Header Container */
-        .fixed-header {
+        header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             background: var(--black);
+            padding: 10px 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            height: 130px;
         }
-        
-        /* Logo Section - Big on Desktop */
-        .logo-header {
-            text-align: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #333;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        
-        .logo-header img {
-            width: 250px; /* Mobile size */
-            max-width: 80%;
+        .logo img {
+            width: 500px;
+            max-width: 90%;
             height: auto;
-            transition: width 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
-
-        /* Navigation Section */
-        .nav-container {
-            padding: 10px;
-        }
-        
         nav {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 0 10px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
-        
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: bold;
-            text-align: center;
-            padding: 8px 5px;
-            font-size: 13px;
         }
-        
         nav a:hover {
             color: var(--gold);
         }
-        
         .call-now-btn {
             background: var(--gold);
             color: var(--black);
-            padding: 10px;
+            padding: 8px 15px;
             border-radius: 4px;
             font-weight: bold;
-            grid-column: span 3;
-            width: 100%;
-            margin-top: 5px;
-            text-align: center;
         }
-
-        /* Main Content */
-        .main-content {
-            margin-top: 210px; /* Adjusted for fixed header */
-            padding: 20px;
-        }
+        .gold-text { color: var(--gold); }
 
         /* Services Section */
         .services-section {
-            margin-top: 30px;
+            margin-top: 30px; /* Added margin to push content below header */
         }
 
         /* 4-column Card Grid with Hover Effects */
@@ -160,13 +136,13 @@
 
         /* Dramatic Hover Effect */
         .service-card:hover {
-            transform: scale(2);
-            z-index: 10;
+            transform: scale(2); /* Double the size */
+            z-index: 10; /* Bring to front */
             height: auto;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         .services-grid:hover .service-card:not(:hover) {
-            transform: scale(0.9);
+            transform: scale(0.9); /* Slightly shrink other cards */
             opacity: 0.8;
             filter: brightness(0.8);
         }
@@ -178,7 +154,7 @@
         /* Enquire Button */
         .enquire-section {
             text-align: center;
-            margin: 80px 0 40px;
+            margin: 80px 0 40px; /* Increased margin to account for hover */
             position: relative;
             z-index: 2;
         }
@@ -203,7 +179,7 @@
         .batch-timings {
             width: 100%;
             border-collapse: collapse;
-            margin: 60px 0 40px;
+            margin: 60px 0 40px; /* Adjusted margins */
             background: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
@@ -233,82 +209,24 @@
             background: rgba(255, 206, 2, 0.1);
         }
 
-        /* Instagram Footer */
-        .instagram-footer {
-            text-align: center;
-            margin: 40px 0 20px;
-            width: 100%;
-        }
-        
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
-            z-index: 1000;
-            transition: transform 0.3s;
-        }
-        
-        .whatsapp-button:hover {
-            transform: scale(1.1);
-        }
-
-        /* Desktop responsiveness */
-        @media (min-width: 769px) {
-            .fixed-header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .logo-header img {
-                width: 500px; /* Large desktop logo */
-                max-width: 90%;
-            }
-            
-            nav {
-                display: flex;
-                gap: 20px;
-                padding: 15px 0;
-            }
-            
-            nav a {
-                font-size: 16px;
-                padding: 5px 15px;
-            }
-            
-            .call-now-btn {
-                width: auto;
-                padding: 8px 20px;
-                margin: 0;
-                grid-column: auto;
-            }
-            
-            .main-content {
-                margin-top: 200px; /* Adjusted for larger logo */
-            }
-        }
-
         @media (max-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             .service-card:hover {
-                transform: scale(1.5);
+                transform: scale(1.5); /* Slightly less scaling on tablet */
             }
         }
-        
         @media (max-width: 768px) {
+            body { padding-top: 140px; }
+            header { height: auto; }
+            .logo img { width: 350px; }
+            nav { flex-wrap: wrap; justify-content: center; }
             .services-grid {
                 grid-template-columns: 1fr;
             }
             .service-card:hover {
-                transform: scale(1.2);
+                transform: scale(1.2); /* Less scaling on mobile */
             }
             .service-card img {
                 width: 100px;
@@ -318,15 +236,11 @@
     </style>
 </head>
 <body>
-    <!-- Fixed Header Section with Large Logo -->
-    <div class="fixed-header">
-        <div class="logo-header">
-            <a href="index.html">
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo">
                 <img src="images/logo.png" alt="Studio 6 Fitness">
             </a>
-        </div>
-        
-        <div class="nav-container">
             <nav>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -336,12 +250,11 @@
                 <a href="tel:+917019476061" class="call-now-btn">CALL NOW</a>
             </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
+    <div class="container">
         <section class="services-section">
-            <h1 style="text-align: center; margin-bottom: 30px; font-size: 2.2rem; color: var(--gold);">OUR SERVICES</h1>
+            <h1 class="gold-text" style="text-align: center; margin-bottom: 30px; font-size: 2.2rem;">OUR SERVICES</h1>
             
             <!-- 4-column Services Grid -->
             <div class="services-grid">
@@ -380,7 +293,7 @@
             </div>
             
             <!-- Batch Timings -->
-            <h2 style="text-align: center; margin: 40px 0 20px; font-size: 1.8rem; color: var(--gold);">GROUP WORKOUT BATCH TIMINGS</h2>
+            <h2 class="gold-text" style="text-align: center; margin: 40px 0 20px; font-size: 1.8rem;">GROUP WORKOUT BATCH TIMINGS</h2>
             <table class="batch-timings">
                 <thead>
                     <tr>
@@ -430,8 +343,7 @@
         </section>
     </div>
 
-    <!-- Instagram Footer -->
-    <div class="instagram-footer">
+    <div class="instagram-footer" style="text-align: center; margin: 40px 0 20px; width: 100%;">
         <a href="https://instagram.com/studio6fitnesschilimbi" 
            target="_blank" 
            style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
@@ -444,20 +356,11 @@
     </div>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/917019476061" class="whatsapp-button" target="_blank">
+    <a href="https://wa.me/917019476061" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; box-shadow:0 0 20px rgba(37, 211, 102, 0.5); z-index: 1000; transition: transform 0.3s;" 
+       onmouseover="this.style.transform='scale(1.1)'" 
+       onmouseout="this.style.transform='scale(1)'"
+       target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
-
-    <script>
-    // Adjust main content margin based on header height
-    document.addEventListener('DOMContentLoaded', function() {
-        const header = document.querySelector('.fixed-header');
-        const mainContent = document.querySelector('.main-content');
-        if (header && mainContent) {
-            const headerHeight = header.offsetHeight;
-            mainContent.style.marginTop = headerHeight + 'px';
-        }
-    });
-    </script>
 </body>
 </html>
