@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio 6 Fitness</title>
+    <title>Studio 6 Fitness | Mangalore's Best Group Workouts</title>
     <style>
         :root {
             --gold: #ffce02;
@@ -11,14 +11,24 @@
             --white: #ffffff;
         }
 
-        /* ===== MOBILE HEADER (ONLY shows below 768px) ===== */
+        /* ===== GLOBAL STYLES ===== */
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ===== MOBILE HEADER ===== */
         @media (max-width: 768px) {
             body {
-                padding-top: 100px; /* Adjusted for mobile header */
+                padding-top: 100px;
             }
             
-            /* Hide desktop header on mobile */
-            header {
+            /* Hide desktop header */
+            .desktop-header {
                 display: none;
             }
             
@@ -34,21 +44,17 @@
                 box-shadow: 0 2px 10px rgba(0,0,0,0.5);
                 display: flex;
                 align-items: center;
-                justify-content: space-between; /* Key change for layout */
+                justify-content: space-between;
                 height: 80px;
             }
             
-            /* Logo - left aligned */
-            .mobile-logo {
-                flex: 0 0 auto;
-            }
-            
+            /* Logo - left */
             .mobile-logo img {
-                width: 180px; /* More compact logo */
+                width: 180px;
                 height: auto;
             }
             
-            /* Call Us button - centered right */
+            /* Call Us button - middle right */
             .mobile-call-btn {
                 background: var(--gold);
                 color: var(--black);
@@ -57,19 +63,19 @@
                 font-weight: bold;
                 text-decoration: none;
                 font-size: 14px;
-                white-space: nowrap;
-                margin: 0 10px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
             
-            /* Hamburger menu - far right */
+            /* Hamburger - far right */
             .mobile-menu-btn {
                 background: none;
                 border: none;
                 color: white;
                 font-size: 24px;
                 cursor: pointer;
-                padding: 5px;
-                margin-left: auto; /* Pushes to far right */
+                margin-left: auto;
             }
             
             /* Dropdown menu */
@@ -93,51 +99,118 @@
                 font-weight: bold;
                 text-align: center;
                 border-bottom: 1px solid #333;
-                font-size: 16px;
             }
             
-            .mobile-dropdown a:last-child {
-                border-bottom: none;
-            }
-            
-            /* Show dropdown when active */
             .mobile-dropdown.show {
                 display: block;
             }
         }
 
-        /* Ensure desktop header shows on larger screens */
+        /* ===== DESKTOP HEADER ===== */
         @media (min-width: 769px) {
             .mobile-header {
                 display: none;
             }
             
-            header {
-                display: block;
+            .desktop-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: var(--black);
+                z-index: 1000;
+                padding: 15px 5%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.5);
             }
+            
+            .desktop-logo img {
+                width: 600px;
+                max-width: 60%;
+                height: auto;
+            }
+            
+            .desktop-nav {
+                display: flex;
+                gap: 25px;
+                align-items: center;
+            }
+            
+            .desktop-nav a {
+                color: var(--white);
+                text-decoration: none;
+                font-weight: bold;
+            }
+            
+            .desktop-call-btn {
+                background: var(--gold);
+                color: var(--black);
+                padding: 10px 20px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            margin-top: 120px;
+            padding: 20px;
+        }
+
+        /* Your existing content styles */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .gold-text {
+            color: var(--gold);
+        }
+        
+        .gold-button {
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 25px 0;
+        }
+        
+        .program-section {
+            background: #111;
+            padding: 40px;
+            margin: 40px 0;
+            border-left: 4px solid var(--gold);
         }
     </style>
 </head>
 <body>
-    <!-- DESKTOP HEADER (hidden on mobile) -->
-    <header>
-        <!-- Your existing desktop header code -->
+    <!-- DESKTOP HEADER -->
+    <header class="desktop-header">
+        <div class="desktop-logo">
+            <a href="index.html"><img src="images/logo@2x.png" alt="Studio 6 Fitness"></a>
+        </div>
+        <nav class="desktop-nav">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="tel:+917019476061" class="desktop-call-btn">CALL NOW</a>
+        </nav>
     </header>
 
-    <!-- MOBILE HEADER (hidden on desktop) -->
+    <!-- MOBILE HEADER -->
     <div class="mobile-header">
-        <!-- Logo - Left -->
         <div class="mobile-logo">
             <a href="index.html"><img src="images/logo@2x.png" alt="Studio 6 Fitness"></a>
         </div>
-        
-        <!-- Call Us - Middle Right -->
         <a href="tel:+917019476061" class="mobile-call-btn">CALL US</a>
-        
-        <!-- Hamburger - Far Right -->
         <button class="mobile-menu-btn">☰</button>
-        
-        <!-- Dropdown Menu -->
         <div class="mobile-dropdown">
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -147,9 +220,43 @@
         </div>
     </div>
 
-    <!-- Your page content remains here -->
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <section class="hero">
+            <h1 class="gold-text">UNLEASH YOUR POTENTIAL</h1>
+            <h2>Join our vibrant fitness community</h2>
+            <p>
+                At Studio 6 Fitness, we empower you to transform your fitness journey. Our expert-led group workout sessions include Functional Fitness, Zumba Fitness, Power Yoga, Kids Workouts, Outdoor Activities, Personal Training and much more.
+            </p>
+            <a href="contact.html" class="gold-button">CLAIM YOUR FREE TRIAL</a>
+        </section>
 
-    <!-- JavaScript -->
+        <section class="program-section">
+            <h2 class="gold-text">FUNCTIONAL FITNESS</h2>
+            <p>Unlock your potential with Functional Fitness, where we focus on movements that enhance your everyday life. Our expert trainers guide you through a variety of exercises that improve strength, flexibility, and coordination.</p>
+        </section>
+
+        <section class="program-section">
+            <h2 class="gold-text">ZUMBA FITNESS</h2>
+            <p>Experience the joy of movement with our Zumba Fitness classes, where dance meets exercise! Led by passionate instructors, these sessions combine lively music and exhilarating dance routines.</p>
+        </section>
+
+        <section class="program-section">
+            <h2 class="gold-text">POWER YOGA</h2>
+            <p>Elevate your fitness journey with Power Yoga, a dynamic practice that blends strength and flexibility. Our skilled instructors lead you through a series of challenging poses.</p>
+        </section>
+
+        <section style="text-align: center; padding: 60px 20px;">
+            <h2 class="gold-text" style="font-size: 2rem;">READY TO TRANSFORM?</h2>
+            <a href="contact.html" class="gold-button">GET STARTED TODAY</a>
+        </section>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917019476061" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; box-shadow:0 0 10px rgba(0,0,0,0.3);" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn')?.addEventListener('click', function(e) {
