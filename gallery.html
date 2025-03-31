@@ -12,84 +12,99 @@
             --darker-bg: #111111;
         }
         
+        /* Base Styles */
         body {
             background: var(--black);
             color: var(--white);
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
             margin: 0;
-            padding: 0;
+            padding-top: 100px;
+            line-height: 1.6;
         }
         
-        /* ===== IDENTICAL HEADER FROM REVIEW.HTML ===== */
-        .fixed-header {
+        /* Header Styles */
+        header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             background: var(--black);
+            padding: 10px 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            padding: 10px 0;
+            height: 130px;
+            transition: all 0.3s ease;
         }
         
-        .logo-header {
-            text-align: center;
-            padding: 0 0 10px 0;
-            border-bottom: 1px solid #333;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
         
-        .logo-header img {
-            width: 250px;
-            max-width: 80%;
+        .logo img {
+            width: 600px;
+            max-width: 90%;
             height: auto;
-            transition: width 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            transition: transform 0.3s ease;
         }
-
-        .nav-container {
-            padding: 10px;
+        
+        .logo img:hover {
+            transform: scale(1.02);
         }
         
         nav {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 0 10px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
         
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: bold;
-            text-align: center;
-            padding: 8px 5px;
-            font-size: 13px;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
         }
         
         nav a:hover {
             color: var(--gold);
         }
         
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
         .call-now-btn {
             background: var(--gold);
             color: var(--black);
-            padding: 10px;
+            padding: 8px 15px;
             border-radius: 4px;
             font-weight: bold;
-            grid-column: span 3;
-            width: 100%;
-            margin-top: 5px;
-            text-align: center;
+            transition: all 0.3s ease;
         }
-
-        .main-content {
-            margin-top: 220px;
-            padding: 20px;
+        
+        .call-now-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 206, 2, 0.3);
         }
-
-        /* ===== YOUR ORIGINAL GALLERY STYLES ===== */
+        
+        /* Gallery Styles */
         .gallery-section {
-            padding: 40px 0;
+            padding: 80px 0;
             text-align: center;
             animation: fadeIn 1s ease;
         }
@@ -99,10 +114,15 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
+        .gallery-header {
+            margin-bottom: 50px;
+        }
+        
         .gallery-header h1 {
             color: var(--gold);
             font-size: 2.5rem;
             margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .gallery-header p {
@@ -119,6 +139,11 @@
             border-radius: 12px;
             border-left: 4px solid var(--gold);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .instagram-embed-container:hover {
+            transform: translateY(-5px);
         }
         
         .instagram-embed {
@@ -141,73 +166,112 @@
             border-radius: 4px;
             font-weight: bold;
             display: inline-block;
+            transition: all 0.3s ease;
             font-size: 1.1rem;
+            border: 2px solid var(--gold);
         }
-
-        .whatsapp-button {
+        
+        .gold-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(255, 206, 2, 0.4);
+            background: transparent;
+            color: var(--gold);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: #25D366;
             color: white;
-            padding: 15px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
             z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
-
-        /* ===== DESKTOP RESPONSIVENESS ===== */
-        @media (min-width: 769px) {
-            .fixed-header {
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .instagram-embed {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 120px;
+            }
+            
+            header {
+                height: auto;
                 padding: 15px 0;
             }
             
-            .logo-header img {
-                width: 500px;
-            }
-            
             nav {
-                display: flex;
-                gap: 20px;
-                padding: 0;
-                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
             }
             
-            nav a {
-                font-size: 16px;
-                padding: 5px 15px;
-            }
+            @media (max-width: 768px) {
+            body { padding-top: 140px; }
+            header { height: auto; }
+            .logo img { width: 360px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            .services-grid {
+                grid-template-columns: 1fr;            }
             
-            .call-now-btn {
-                width: auto;
-                padding: 8px 20px;
-                margin: 0;
-                grid-column: auto;
-            }
-            
-            .main-content {
-                margin-top: 200px;
-            }
-        }
-
-        /* ===== MOBILE ADJUSTMENTS ===== */
-        @media (max-width: 768px) {
             .instagram-embed {
                 height: 400px;
+            }
+            
+            .gallery-header h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .instagram-embed {
+                height: 350px;
+            }
+            
+            .gold-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- IDENTICAL HEADER FROM REVIEW.HTML -->
-    <div class="fixed-header">
-        <div class="logo-header">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Studio 6 Fitness">
+    <!-- Header -->
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+            <a href="index.html" class="logo">
+                <img src="images/logo@2x.png" alt="Studio 6 Fitness">
             </a>
-        </div>
-        
-        <div class="nav-container">
             <nav>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -217,22 +281,24 @@
                 <a href="tel:+917019476061" class="call-now-btn">CALL NOW</a>
             </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- YOUR ORIGINAL GALLERY CONTENT -->
-    <div class="main-content">
+    <!-- Main Content -->
+    <main class="container">
         <section class="gallery-section">
             <div class="gallery-header">
-                <h1>STUDIO 6 GALLERY</h1>
+                <h1 class="gold-text">STUDIO 6 GALLERY</h1>
                 <p>Experience our fitness community through these moments. Follow <a href="https://instagram.com/studio6fitnesschilimbi" style="color:var(--gold);font-weight:bold" target="_blank">@studio6fitnesschilimbi</a> for daily inspiration!</p>
             </div>
             
+            <!-- Instagram Native Embed -->
             <div class="instagram-embed-container">
                 <iframe class="instagram-embed"
                         src="https://www.instagram.com/studio6fitnesschilimbi/embed/"
                         frameborder="0"
                         scrolling="no"
-                        allowtransparency="true"></iframe>
+                        allowtransparency="true"
+                        loading="lazy"></iframe>
             </div>
             
             <div class="view-more">
@@ -241,10 +307,41 @@
                 </a>
             </div>
         </section>
-    </div>
+    </main>
 
-    <a href="https://wa.me/917019476061" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/917019476061" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
     </a>
+
+    <!-- Performance Optimization -->
+    <script>
+        // Lazy load the Instagram embed
+        document.addEventListener("DOMContentLoaded", function() {
+            const instagramEmbed = document.querySelector('.instagram-embed');
+            
+            // Only load the embed when it's visible in viewport
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    instagramEmbed.src = instagramEmbed.dataset.src || instagramEmbed.src;
+                    observer.unobserve(instagramEmbed);
+                }
+            }, { threshold: 0.1 });
+            
+            observer.observe(instagramEmbed);
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
