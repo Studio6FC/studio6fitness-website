@@ -16,100 +16,71 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
+            padding-top: 70px;
         }
-        
-        /* Fixed Header Container */
-        .fixed-header {
+        header {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             background: var(--black);
+            padding: 10px 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            padding: 10px 0;
+            height: 130px;
         }
-        
-        /* Logo Section */
-        .logo-header {
-            text-align: center;
-            padding: 0 0 10px 0;
-            border-bottom: 1px solid #333;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        
-        .logo-header img {
-            width: 250px;
-            max-width: 80%;
+        .logo img {
+            width: 600px;
+            max-width: 90%;
             height: auto;
-            transition: width 0.3s ease;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
         }
-
-        /* Navigation Section */
-        .nav-container {
-            padding: 10px;
-        }
-        
         nav {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 0 10px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
-        
         nav a {
             color: var(--white);
             text-decoration: none;
             font-weight: bold;
-            text-align: center;
-            padding: 8px 5px;
-            font-size: 13px;
         }
-        
         nav a:hover {
             color: var(--gold);
         }
-        
         .call-now-btn {
             background: var(--gold);
             color: var(--black);
-            padding: 10px;
+            padding: 8px 15px;
             border-radius: 4px;
             font-weight: bold;
-            grid-column: span 3;
-            width: 100%;
-            margin-top: 5px;
-            text-align: center;
         }
 
-        /* Main Content */
-        .main-content {
-            margin-top: 220px;
-            padding: 20px;
-        }
-
-        /* ===== 3D REVIEW CARDS ===== */
+        /* ===== 3D REVIEW CARDS (No Avatars) ===== */
         .reviews-section {
-            padding: 40px 0;
+            padding: 60px 0;
             overflow: hidden;
+            position: relative;
         }
-        
         .reviews-section p {
-            color: var(--white);
-        }
-        
+    color: var(--white);
+}
         .reviews-track {
             display: flex;
             gap: 30px;
             padding: 30px 0;
             animation: scroll 60s linear infinite;
         }
-        
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-350px * 5)) }
         }
-        
         .review-card {
             flex: 0 0 350px;
             background: linear-gradient(145deg, #1a1a1a, #222);
@@ -121,44 +92,37 @@
             transition: all 0.3s;
             border-left: 4px solid var(--gold);
         }
-        
         .review-card:hover {
             transform: perspective(1000px) rotateY(5deg) translateY(-10px);
             box-shadow: 8px 8px 25px rgba(0,0,0,0.4);
         }
-        
         .reviewer-info {
             margin-bottom: 15px;
         }
-        
         .reviewer-info h4 {
             margin: 0 0 5px 0;
             color: var(--gold);
             font-size: 1.2rem;
         }
-        
         .stars {
             color: var(--gold);
             letter-spacing: 3px;
             font-size: 1.1rem;
         }
-        
         .review-text {
             font-style: italic;
             line-height: 1.6;
+            min-height: 120px;
         }
-        
         .review-date {
             font-size: 0.8rem;
             color: #888;
             margin-top: 15px;
         }
-        
         .view-all {
             text-align: center;
             margin-top: 40px;
         }
-        
         .gold-button {
             background: var(--gold);
             color: var(--black);
@@ -169,84 +133,32 @@
             display: inline-block;
         }
 
-        /* Instagram Footer */
-        .instagram-footer {
-            text-align: center;
-            margin: 50px 0 30px;
-            width: 100%;
-        }
-        
-        /* WhatsApp Button */
-        .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-            z-index: 999;
-        }
-
-        /* Desktop responsiveness */
-        @media (min-width: 769px) {
-            .fixed-header {
-                padding: 15px 0;
-            }
-            
-            .logo-header img {
-                width: 500px;
-            }
-            
-            nav {
-                display: flex;
-                gap: 20px;
-                padding: 0;
-                margin-top: 10px;
-            }
-            
-            nav a {
-                font-size: 16px;
-                padding: 5px 15px;
-            }
-            
-            .call-now-btn {
-                width: auto;
-                padding: 8px 20px;
-                margin: 0;
-                grid-column: auto;
-            }
-            
-            .main-content {
-                margin-top: 200px;
-            }
-        }
-
-        /* Mobile adjustments */
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .review-card {
-                transform: perspective(1000px) rotateY(0deg);
-                flex: 0 0 85vw;
+            body { padding-top: 140px; }
+            header { height: auto; }
+            .logo img { width: 360px; }
+            nav { flex-wrap: wrap; justify-content: center; }
+            .services-grid {
+                grid-template-columns: 1fr;
+                
+            nav {
+                gap: 15px;
+                font-size: 14px;
             }
-            
-            .review-card:hover {
-                transform: none;
-                box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            .review-card {
+                flex: 0 0 280px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Fixed Header Section -->
-    <div class="fixed-header">
-        <div class="logo-header">
-            <a href="index.html">
-                <img src="images/logo.png" alt="Studio 6 Fitness">
+    <!-- Fixed Header -->
+    <header>
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <a href="index.html" class="logo">
+                <img src="images/logo@2x.png" alt="Studio 6 Fitness">
             </a>
-        </div>
-        
-        <div class="nav-container">
             <nav>
                 <a href="about.html">About</a>
                 <a href="services.html">Services</a>
@@ -256,14 +168,12 @@
                 <a href="tel:+917019476061" class="call-now-btn">CALL NOW</a>
             </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            <section class="reviews-section">
-                <h1 style="text-align: center; margin-bottom: 10px; color: var(--gold);">CLIENT TESTIMONIALS</h1>
-                <p style="text-align: center; margin-bottom: 40px;">Hear what our members say about their experience</p>
+    <div class="container">
+        <section class="reviews-section">
+            <h1 class="gold-text" style="text-align: center; margin-bottom: 10px; color: var(--gold);">CLIENT TESTIMONIALS</h1>
+            <p style="text-align: center; margin-bottom: 40px;">Hear what our members say about their experience</p>
             
             <!-- Horizontal Scrolling Reviews -->
             <div class="reviews-track" id="reviews-track">
@@ -320,40 +230,72 @@
             
             <div class="view-all">
                 <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
-                   class="gold-button"
-                   target="_blank">
-                    VIEW ALL REVIEWS ON GOOGLE
-                </a>
+   class="gold-button"
+   target="_blank">
+    VIEW ALL REVIEWS ON GOOGLE
+</a>
             </div>
         </section>
     </div>
 
     <!-- Instagram Footer -->
-    <div class="instagram-footer">
+    <div class="instagram-footer" style="text-align: center; margin: 50px 0 30px; width: 100%;">
         <a href="https://instagram.com/studio6fitnesschilimbi" target="_blank" style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
             Follow us @studio6fitnesschilimbi
         </a>
     </div>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/917019476061" class="whatsapp-button" target="_blank" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/917019476061" style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px; border-radius:50%; box-shadow:0 0 10px rgba(0,0,0,0.3); z-index: 999;" target="_blank">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
     <script>
+    // ===== REAL REVIEWS LOADER =====
     document.addEventListener('DOMContentLoaded', function() {
         // Duplicate reviews for seamless scrolling
         const track = document.getElementById('reviews-track');
         track.innerHTML += track.innerHTML;
         
-        // Pause animation on hover
-        track.addEventListener('mouseenter', () => {
-            track.style.animationPlayState = 'paused';
-        });
-        track.addEventListener('mouseleave', () => {
-            track.style.animationPlayState = 'running';
-        });
+        // Uncomment to load real Google reviews
+        // loadGoogleReviews();
     });
+    
+    /* Uncomment and configure when ready
+    async function loadGoogleReviews() {
+        try {
+            const response = await fetch('https://yourdomain.com/api/google-reviews.php');
+            const data = await response.json();
+            
+            if (data.result?.reviews) {
+                const track = document.getElementById('reviews-track');
+                track.innerHTML = '';
+                
+                data.result.reviews.slice(0, 5).forEach(review => {
+                    const date = new Date(review.time * 1000).toLocaleDateString('en-IN');
+                    const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                    
+                    track.innerHTML += `
+                        <div class="review-card">
+                            <div class="reviewer-info">
+                                <h4>${review.author_name}</h4>
+                                <div class="stars">${stars}</div>
+                            </div>
+                            <p class="review-text">"${review.text}"</p>
+                            <p class="review-date">${date}</p>
+                        </div>
+                    `;
+                });
+                
+                // Duplicate for seamless scrolling
+                track.innerHTML += track.innerHTML;
+            }
+        } catch (error) {
+            console.error("Couldn't load reviews:", error);
+            // Sample reviews remain visible
+        }
+    }
+    */
     </script>
 </body>
 </html>
