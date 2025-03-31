@@ -11,6 +11,14 @@
             --white: #ffffff;
         }
         
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
         /* ===== HEADER ===== */
         .fixed-header {
             position: fixed;
@@ -26,8 +34,8 @@
         }
         
         .logo-header img {
-            width: 400px;
-            max-width: 80%;
+            width: 800px;
+            max-width: 60%;
             height: auto;
         }
         
@@ -42,18 +50,20 @@
             color: var(--white);
             text-decoration: none;
             font-weight: bold;
+            font-size: 18px;
             white-space: nowrap;
         }
         
         .call-now-btn {
             background: var(--gold);
             color: var(--black);
-            padding: 10px 20px;
+            padding: 12px 25px;
             border-radius: 4px;
             font-weight: bold;
+            font-size: 18px;
         }
         
-        /* Mobile Nav (Hidden by default) */
+        /* Mobile Nav */
         .mobile-nav {
             display: none;
         }
@@ -62,7 +72,7 @@
             background: none;
             border: none;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             margin-left: 15px;
         }
@@ -77,13 +87,16 @@
             padding: 15px;
             border: 1px solid var(--gold);
             border-radius: 4px;
+            z-index: 1001;
         }
         
         .dropdown-menu a {
             display: block;
-            color: white;
-            padding: 10px 0;
+            color: var(--white);
+            padding: 12px 0;
             text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
             border-bottom: 1px solid #333;
         }
         
@@ -96,6 +109,7 @@
             
             .logo-header img {
                 width: 80%;
+                max-width: 300px;
                 margin-bottom: 15px;
             }
             
@@ -113,8 +127,52 @@
             .dropdown-menu.show {
                 display: block;
             }
+            
+            .call-now-btn {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
         
+        /* MAIN CONTENT */
+        .main-content {
+            margin-top: 180px;
+            padding: 20px;
+            background: var(--black);
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="fixed-header">
+        <div class="logo-header">
+            <a href="index.html"><img src="images/logo.png" alt="Studio 6 Fitness"></a>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="reviews.html">Reviews</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact</a>
+            <a href="tel:+917019476061" class="call-now-btn">CALL NOW</a>
+        </nav>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav">
+            <a href="tel:+917019476061" class="call-now-btn">CALL NOW</a>
+            <button class="menu-toggle">☰</button>
+            <div class="dropdown-menu">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </div>        
         /* MAIN CONTENT (Keep your existing styles below) */
         .main-content {
             margin-top: 150px; /* Adjust based on header height */
@@ -154,8 +212,85 @@
 
     <!-- YOUR EXISTING PAGE CONTENT -->
     <div class="main-content">
-        <!-- All your current page content goes here -->
+        <div class="container">
+            <section class="reviews-section">
+                <h1 style="text-align: center; margin-bottom: 10px; color: var(--gold);">CLIENT TESTIMONIALS</h1>
+                <p style="text-align: center; margin-bottom: 40px;">Hear what our members say about their experience</p>
+            
+            <!-- Horizontal Scrolling Reviews -->
+            <div class="reviews-track" id="reviews-track">
+                <!-- Sample Review 1 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Rahul P.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"The trainers at Studio 6 transformed my fitness journey. In just 3 months, I've gained more strength than I did in a year at other gyms!"</p>
+                    <p class="review-date">June 15, 2024</p>
+                </div>
+                
+                <!-- Sample Review 2 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Priya M.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"The Zumba classes are electrifying! I've never enjoyed working out this much. The energy here is unmatched in Mangalore."</p>
+                    <p class="review-date">May 28, 2024</p>
+                </div>
+                
+                <!-- Sample Review 3 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Arjun K.</h4>
+                        <div class="stars">★★★★☆</div>
+                    </div>
+                    <p class="review-text">"Recovered from my back injury thanks to the personalized training. The trainers really understand body mechanics."</p>
+                    <p class="review-date">May 10, 2024</p>
+                </div>
+                
+                <!-- Sample Review 4 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Ananya S.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"My daughter loves the kids' program! She's more active and confident now. Worth every rupee."</p>
+                    <p class="review-date">April 22, 2024</p>
+                </div>
+                
+                <!-- Sample Review 5 -->
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <h4>Sanjay R.</h4>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <p class="review-text">"The functional fitness classes took my athletic performance to the next level. Highly recommended for serious athletes."</p>
+                    <p class="review-date">April 15, 2024</p>
+                </div>
+            </div>
+            
+            <div class="view-all">
+                <a href="https://search.google.com/local/reviews?placeid=ChIJWUmijGZaozsRaD6k4urPT8c" 
+                   class="gold-button"
+                   target="_blank">
+                    VIEW ALL REVIEWS ON GOOGLE
+                </a>
+            </div>
+        </section>
     </div>
+
+    <!-- Instagram Footer -->
+    <div class="instagram-footer">
+        <a href="https://instagram.com/studio6fitnesschilimbi" target="_blank" style="color: #ffce02; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 5px;">
+            Follow us @studio6fitnesschilimbi
+        </a>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/917019476061" class="whatsapp-button" target="_blank">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
     <!-- JavaScript -->
     <script>
